@@ -87,6 +87,8 @@ Oi, neste tutorial vamos criar uma estrutura padrão para iniciar qualquer **API
 	> 2. Na raiz do projeto, criar o arquivo json de configuração do prettier chamado **.prettierrc**, e adicionar o conteúdo **{ "singleQuote":  true, "trailingComma":  es5" }**. Com este arquivo estamos sobrescrevendo algumas regras do prettier que são definidas por padrão.
 
 - **editorConfig**
-O editorConfig é um plugin do VSCode que tem por objetivo manter o padrão de código configurado inicialmente para todas as interfaces de desenvolvimento.
+
+    O editorConfig é um plugin do VSCode que tem por objetivo manter o padrão de código configurado inicialmente para todas as interfaces de desenvolvimento.
+
 	> 1. Após instalar o plugin no VSCode, clique com o botão direito do mouse na raiz do projeto e em seguida clique em **Generate .editorConfig**.
 	> 2. Após o VSCode criar o arquivo de configuração do editorConfig, modifique os valores dos atributos *trim_trailing_whitespace* e *insert_final_newline* para **true**.
