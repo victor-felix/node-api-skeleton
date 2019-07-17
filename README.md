@@ -88,7 +88,7 @@ Hi, in this tutorial we will create a default structure for any **API** project 
 
 - **editorConfig**
 
-    The editConfig is a plugin of the VSCode that maintain the rules of code configuration for all developers that work in this project.
+    The editConfig is a plugin using for the IDE that maintain the rules of code configuration for all developers that work in this project.
 
 	> 1. After install the plugin, click on the button right of the mouse in the root folder of the project and select the option **Generate .editorConfig** to create the editorConfig file.
 	> 2. Finally you will update the values *trim_trailing_whitespace* e *insert_final_newline* for **true**.
