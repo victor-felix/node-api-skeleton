@@ -1,57 +1,57 @@
-# Criando uma estrutura padrão para uma API com Node
+# Creating a default structure for an API in NodeJS
 
-Oi, neste tutorial vamos criar uma estrutura padrão para iniciar qualquer **API** em **Node**.
+Hi, in this tutorial we will create a default structure for any **API** project using **NodeJS**.
 
-## Iniciando projeto
+## Starting the project
 
 - **yarn init -y**
-	> Comando utilizado para criar o arquivo **package.json**.
+    > This command will create the **package.json** file.
 
-## Dependências
+## Dependencies
 - **yarn add express**
-	> Comando utilizado para baixar a dependência do express que será utilizado para iniciar o servidor do projeto.
+	> Using this command for install the server dependency.
 
 ## Dependências de desenvolvimento
 - **yarn add sucrase -D**
-	> Dependência alternativa ao Babel que dá agilidade ao desenvolvimento. PS: Ao instalar  o **sucrase**, podemos utilizar a sintaxe de **import** ao invés de **require**. Após instalar esta dependência siga para a sessão de configurações para configurar o sucrase.
+    > An alternative to Babel, this dependency give agility in development. After install the **sucrase**, we can use the syntax **import**, better than the syntax **require**. In the section **Configuration** you can complete the instalation.
 - **yarn add nodemon -D**
- 	> Instale este dependência para habilitar um servidor que reinicia automaticamente sempre que houver alguma alteração no código.
+    > Install this dependency for the server show updates automatically in the browser.
  - **yarn add eslint -D**
-	 > Dependência necessária para padronizar o código da aplicação. Após a instalação do eslint, siga para a sessão de configurações para concluir a instalação do eslint.
+     > This dependency is necessary to define default rules of codification. See the section **Configuration** for complete the installation.
 - **yarn add prettier eslint-config-prettier eslint-plugin-prettier -D**
-    > Também são dependências necessárias para padronização do código da aplicação, após o término da instalação siga para a sessão de configurações do **prettier**.
+    > This dependencies are necessary do define default rules of codification too. Don't forget of see the section **Configuration** to complete the installation.
 
-## Criando estrutura de pastas
-- Criar pasta **src** na raiz do projeto
-	> Pasta contento todo o código fonte da nossa aplicação.
-	- Dentro da pasta **src** serão criandos os seguintes arquivos e pastas:
+## Creating the folder structure
+- Create the folder **src** in the root folder.
+    > This folder have all the code of your application.
+    - Inside the folder **src** you will create the followings files and folders:
 		- app.js
-			>Classe principal para a inicialização da aplicação.
+			> Class using for start the application.
 		- routes.js
-			>Arquivo que conterá todas as rotas da aplicação.
+            > File with all routes of the API.
 		- server.js
-			>Arquivo que vai conter  a inicialização e as informações do servidor.
-	- Ainda dentro da pasta **src** vamos criar a seguinte estrutura de pastas.
+            > Create this file to define information of the server.
+    - Still inside the folder **src** we create the following folder structure.
 		- config
-			>Pasta que irá conter a maioria das configurações da nossa aplicação.
+            > Folder necessary to create all the configuration of the application.
 		- database
-			> Dentro da pasta database vamos criar o arquivo **index.js** que será o arquivo de inicialização da nossa conexão com o banco de dados, também teremos as pastas de **migrations** e **seeds**.
+            > Inside this folder, we include the file necessary to start the database of the application and the folders related with database such as **Migrations** and **Seeds**.
 		- app
-			> A pasta **app** conterá toda regra de negócio da nossa aplicação, dentro dessa pasta vamos criar as pastas **controllers**, **models** e **middlewares**.
+            > The folder **app** will contains all the business rules of the your application, inside this folder you wil create the following folders **Controllers**, **Models** and **Middlewares**.
 
-## Configurações
+## Configurations
 - **sucrase**
-	> 1. Criar arquivo de configuração do **nodemon** na raiz do projeto, o arquivo deve se chamar **nodemon.json**.
-	> 2. Dentro desse arquivo, deve ser inserido a linha abaixo.
-		> **{ "execMap" :  { "js":  "sucrase-node" } }**
-		> Com este comando eu estou dizendo que ao executar o nodemon, o node deverá utilizar o sucrase-node ao invés do nodemon.
-	> 3. Dentro do arquivo package.json deve ser inserida a linha abaixo.
-		> **"scripts" : { "dev":  "nodemon src/server.js" }**
-	>4. Executar o comando "**yarn dev**".
+    > 1. Create the file of configuration  of the dependency **nodemon** in the root folder, this file name is **nodemon.json**.
+    > 2. Inside this file, insert the following line.
+        > **{ "execMap" :  { "js":  "sucrase-node" } }**
+        > Use this instructions to start the server with **sucrade-node**.
+    > 3. Inside the package.json file, you insert the following instruction in the section **scripts**.
+        > **{ "dev":  "nodemon src/server.js" }**
+    > 4. Execute the command "**yarn dev**" to start the server.
 	
 - **eslint**
-	> 1. Para iniciar a configuração do eslint basta executar o comento **yarn eslint --init**
-	> 2. Selecionar as opções:
+    > 1. To start the ESLINT configuration just execute the command **yarn eslint --init**
+	> 2. Select the following options:
     
 		- To check syntax, find problems, and enforce code style
         
@@ -59,7 +59,7 @@ Oi, neste tutorial vamos criar uma estrutura padrão para iniciar qualquer **API
         
 		- None of these
         
-		- Utilizando a barra de espaço, desmarcar a opção do browser e marcar a opção node.
+		- Using the space bar to unmark the option "browser" and mark the option "node".
         
 		- Use a popular style guide
         
@@ -67,28 +67,28 @@ Oi, neste tutorial vamos criar uma estrutura padrão para iniciar qualquer **API
         
 		- JavaScript
         
-		- Aceitar a instalação das dependências do Airbnb.
+		- Accept the installation of the dependencies of Airbnb.
         
-	> 3. Deletar arquivo *package-lock.json* e executar o comando **yarn**.
-	> 4. No VSCode abrir a aba de extensões e instalar a extensão do ESLint
-	> 5. Abrir o arquivo de configuração do VSCode e modificar o valor do atributo "**eslint.autoFixOnSave**" para **true**.
-	> 6. Também modificar o atributo "**eslint.validate**" informando que o javascript, javascriptreact, typescript e typescriptreact terão o atributo "**autofix**" com o valor true para forçar o eslint a fazer o autofix.
-	> 7. Dentro do arquivo "**.eslintrc.js**" modificar o atributo **rules** adicionando os valores "**class-methods-use-this**": "**off**", "**no-param-reassign**":  "**off**", **camelcase**:  "**off**", "**no-unused-vars**": **["error", { argsIgnorePattern:  "next" }]**
+	> 3. Delete the file *package-lock.json* and execute the command **yarn**.
+	> 4. In the IDE VSCode, open the extensions and install the extension of ESLint.
+    > 5. Open the file of configuration of the VSCode and update for **true** the value of the attribute "**eslint.autoFixOnSave**".
+	> 6. Update the attribute "**eslint.validate**" informing that the javascript,javascriptreact, typescript and typescriptreact will have the attribute "**autofix**" with the value **true**.
+	> 7. Inside the file "**.eslintrc.js**" update the attribute **rules** adding the values "**class-methods-use-this**": "**off**", "**no-param-reassign**":  "**off**", **camelcase**:  "**off**", "**no-unused-vars**": **["error", { argsIgnorePattern:  "next" }]**
 
 - **prettier**
-	> 1. Após instalar o prettier, vamos editar o arquivo "**.eslintrc.js**".
+	> 1. After install the prettier, you will edit the file "**.eslintrc.js**".
     
-		Transformar o atributo extends em um array com o valor ["airbnb-base", "prettier"].
+		Transform the attribute "extends" to an array with the values ["airbnb-base", "prettier"].
         
-		Adicionar uma nova propriedade chamada plugins com o valor ["prettier"].
+		Create or edit the attribute "plugins" and add the value ["prettier"].
         
-		Dentro da propriedade rules, adicionar a linha "prettier/prettier":  "error".
+		Inside the array "rules", add the value the following value: "prettier/prettier":  "error".
         
-	> 2. Na raiz do projeto, criar o arquivo json de configuração do prettier chamado **.prettierrc**, e adicionar o conteúdo **{ "singleQuote":  true, "trailingComma":  es5" }**. Com este arquivo estamos sobrescrevendo algumas regras do prettier que são definidas por padrão.
+	> 2. In the root folder, create the file of configuration of the prettier called **.prettierrc**. This file will contains the following instruction: **{ "singleQuote":  true, "trailingComma":  es5" }**. This instruction override some rules of te prettier.
 
 - **editorConfig**
 
-    O editorConfig é um plugin do VSCode que tem por objetivo manter o padrão de código configurado inicialmente para todas as interfaces de desenvolvimento.
+    The editConfig is a plugin of the VSCode that maintain the rules of code configuration for all developers that work in this project.
 
-	> 1. Após instalar o plugin no VSCode, clique com o botão direito do mouse na raiz do projeto e em seguida clique em **Generate .editorConfig**.
-	> 2. Após o VSCode criar o arquivo de configuração do editorConfig, modifique os valores dos atributos *trim_trailing_whitespace* e *insert_final_newline* para **true**.
+	> 1. After install the plugin, click on the button right of the mouse in the root folder of the project and select the option **Generate .editorConfig** to create the editorConfig file.
+	> 2. Finally you will update the values *trim_trailing_whitespace* e *insert_final_newline* for **true**.
