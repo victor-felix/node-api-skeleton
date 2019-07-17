@@ -11,7 +11,7 @@ Hi, in this tutorial we will create a default structure for any **API** project 
 - **yarn add express**
 	> Using this command for install the server dependency.
 
-## Dependências de desenvolvimento
+## Dev Dependencies
 - **yarn add sucrase -D**
     > An alternative to Babel, this dependency give agility in development. After install the **sucrase**, we can use the syntax **import**, better than the syntax **require**. In the section **Configuration** you can complete the instalation.
 - **yarn add nodemon -D**
